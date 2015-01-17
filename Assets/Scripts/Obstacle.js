@@ -5,9 +5,19 @@ var range : float = 4;
 
 function Start () {
 	rigidbody2D.velocity = velocity;
-	transform.position = new Vector3(transform.position.x, transform.position.y - range * Random.value, transform.position.z);
+	var y = transform.position.y - range * Random.value;
+	
+	transform.position = new Vector3(transform.position.x, y, transform.position.z);
 }
 
 function Update () {
 
+}
+
+function OnBecameInvisible () {
+	Debug.Log("Ya nadie me ve");
+}
+
+function OnBecameVisible () {
+	Debug.Log("Ya nadie me ve");
 }
