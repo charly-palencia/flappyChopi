@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var jumpForce : Vector2 = new Vector2(0, 300);
-
+var crashSound : AudioClip;
 function Start () {
 
 }
@@ -16,7 +16,7 @@ function Update () {
 		
 	}else
 	{
-		if(canBeRotate() )  transform.Rotate(Vector3.forward, Time.deltaTime * -9); 
+		if(canBeRotate() )  transform.Rotate(Vector3.forward, Time.deltaTime * -8.5); 
 		 
 	}
 	
@@ -30,7 +30,8 @@ function Update () {
 }
 
 function OnCollisionEnter2D (other : Collision2D) {
-  Die();
+ audio.PlayOneShot(crashSound);
+ Invoke("Die", 1f); 
 }
 
 function Die () {
